@@ -10,7 +10,7 @@ createRoot(document.getElementById("root"))
            
                 {/* <TailwindCSS/>
                  <UserForm/> */}
-                <HitungGajiForm/>
+                <TailwindCSS/>
         </div>
     )
     
