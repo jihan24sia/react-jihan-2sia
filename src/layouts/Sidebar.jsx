@@ -2,8 +2,17 @@ import { MdDashboard } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { MdPeople } from "react-icons/md";
 import profile from "../assets/profile.jpeg";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Sidebar() {
+
+    const menuClass = ({ isActive }) =>
+        `flex cursor-pointer items-center rounded-xl p-4  space-x-2
+        ${isActive
+            ? "text-hijau bg-green-200 font-extrabold"
+            : "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+        }`;
+
     return (
         <div id="sidebar" className="flex flex-col min-h-screen w-90 bg-white p-10 shadow-lg">
 
@@ -21,23 +30,23 @@ export default function Sidebar() {
             <div id="sidebar-menu" className="mt-10">
                 <ul id="menu-list" className="space-y-3">
                     <li>
-                        <div id="menu-1" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <NavLink id="menu-1" to="/" className={menuClass}>
                             <MdDashboard className="mr-4 text-xl" />
                             <span>Dashboard</span>
-                        </div>
+                        </NavLink>
 
                     </li>
                     <li>
-                        <div id="menu-2" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <NavLink id="menu-2" to="/orders" className={menuClass}>
                             <MdShoppingCart className="mr-4 text-xl" />
                             <span>Orders</span>
-                        </div>
+                        </NavLink>
                     </li>
                     <li>
-                        <div id="menu-3" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <NavLink id="menu-3" to="/customers" className={menuClass}>
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
-                        </div>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

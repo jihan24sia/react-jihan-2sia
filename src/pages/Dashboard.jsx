@@ -73,7 +73,7 @@ export default function Dashboard() {
     return (
         <div id="dashboard-container">
 
-            <Header openModal={() => setShowModal(true)} />
+            
             <PageHeader />
 
             <div className="flex justify-between items-center p-5">
@@ -167,31 +167,6 @@ export default function Dashboard() {
                 </div>
 
             </div>
-
-            {/* MODAL */}
-            {showModal && (
-                <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-                    <div className="bg-white p-6 rounded-xl w-[400px] shadow-xl">
-
-                        <h2 className="text-lg font-bold mb-3">Search</h2>
-
-                        <input
-                            type="text"
-                            placeholder="Cari sesuatu..."
-                            className="w-full border px-3 py-2 rounded mb-4"
-                        />
-
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="bg-red-500 text-white px-4 py-2 rounded"
-                        >
-                            Close
-                        </button>
-
-                    </div>
-                </div>
-            )}
-
         </div>
     );
 }

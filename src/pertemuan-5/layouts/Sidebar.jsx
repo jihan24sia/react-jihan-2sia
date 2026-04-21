@@ -2,6 +2,7 @@ import { MdDashboard } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { MdPeople } from "react-icons/md";
 import profile from "../assets/profile.jpeg";
+import { Link } from "react-router-dom"
 
 export default function Sidebar() {
     return (
@@ -21,23 +22,23 @@ export default function Sidebar() {
             <div id="sidebar-menu" className="mt-10">
                 <ul id="menu-list" className="space-y-3">
                     <li>
-                        <div id="menu-1" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-1" to="/" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
                             <MdDashboard className="mr-4 text-xl" />
                             <span>Dashboard</span>
-                        </div>
+                        </Link>
 
                     </li>
                     <li>
-                        <div id="menu-2" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-2" to="/orders" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
                             <MdShoppingCart className="mr-4 text-xl" />
                             <span>Orders</span>
-                        </div>
+                        </Link>
                     </li>
                     <li>
-                        <div id="menu-3" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-3" to="/customers" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
-                        </div>
+                        </Link>
                     </li>
                 </ul>
             </div>

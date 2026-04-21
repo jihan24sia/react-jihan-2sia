@@ -4,6 +4,8 @@ import { SlSettings } from "react-icons/sl";
 import profile from "../assets/profile.jpeg";
 
 export default function Header({ openModal }) {
+    
+
     return (
         <div id="header-container" className="flex justify-between items-center p-4">
             {/* Search Bar */}
@@ -45,6 +47,9 @@ export default function Header({ openModal }) {
                     />
                 </div>
             </div>
+
+
         </div>
+        
     );
 }

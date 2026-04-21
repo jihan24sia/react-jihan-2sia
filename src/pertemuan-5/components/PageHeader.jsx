@@ -1,5 +1,3 @@
-
-
 export default function PageHeader() {
     return (
         <div id="pageheader-container" className="flex items-center justify-between p-4">
