@@ -46,7 +46,7 @@ export default function Dashboard() {
     const [showModal, setShowModal] = useState(false);
     const [filter, setFilter] = useState("weekly");
 
-  
+
     const getData = () => {
         if (filter === "daily") {
             return [
@@ -73,8 +73,15 @@ export default function Dashboard() {
     return (
         <div id="dashboard-container">
 
-            
-            <PageHeader />
+
+            <PageHeader
+                title="Dashboard"
+                breadcrumb={["Dashboard", "Order List"]}
+            >
+                <button className="bg-hijau text-white px-4 py-2 rounded-lg">
+                    + Add Data
+                </button>
+            </PageHeader>
 
             <div className="flex justify-between items-center p-5">
                 <h2 className="font-semibold text-gray-600">Filter Data</h2>

@@ -29,25 +29,50 @@ export default function Sidebar() {
             {/* List Menu */}
             <div id="sidebar-menu" className="mt-10">
                 <ul id="menu-list" className="space-y-3">
+
                     <li>
-                        <NavLink id="menu-1" to="/" className={menuClass}>
+                        <NavLink to="/" className={menuClass}>
                             <MdDashboard className="mr-4 text-xl" />
                             <span>Dashboard</span>
                         </NavLink>
-
                     </li>
+
                     <li>
-                        <NavLink id="menu-2" to="/orders" className={menuClass}>
+                        <NavLink to="/orders" className={menuClass}>
                             <MdShoppingCart className="mr-4 text-xl" />
                             <span>Orders</span>
                         </NavLink>
                     </li>
+
                     <li>
-                        <NavLink id="menu-3" to="/customers" className={menuClass}>
+                        <NavLink to="/customers" className={menuClass}>
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
                         </NavLink>
                     </li>
+
+                    {/* 🔥 TAMBAHAN ERROR */}
+                    <li>
+                        <NavLink to="/error400" className={menuClass}>
+                            <span>⚙︎</span>
+                            <span>Settings</span>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/error401" className={menuClass}>
+                            <span>☻</span>
+                            <span>Profile</span>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/error403" className={menuClass}>
+                            <span>⊘</span>
+                            <span>Reports</span>
+                        </NavLink>
+                    </li>
+
                 </ul>
             </div>
 
