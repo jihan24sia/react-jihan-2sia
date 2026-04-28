@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
-import Header from "../layouts/Header";
+import Header from "../components/Header";
 import PageHeader from "../components/PageHeader";
 import {
     LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer,

@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
 import "./assets/tailwind.css";
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -11,68 +8,36 @@ import Dashboard from "./pages/Dashboard";
 import Error400 from "./pages/Error400";
 import Error401 from "./pages/Error401";
 import Error403 from "./pages/Error403";
+import MainLayout from './layouts/MainLayout';
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Forgot from "./pages/auth/Forgot";  
+import AuthLayout from "./layouts/AuthLayout";
 
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [showModal, setShowModal] = useState(false);
-
   return (
-    <div id="app-container" className="bg-gray-100 min-h-screen flex">
+    <Routes>
+      <Route element={<MainLayout />}>
 
-      <div id="layout-wrapper" className="flex flex-row flex-1">
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/customers" element={<Customers />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/error400" element={<Error400 />} />
+        <Route path="/error401" element={<Error401 />} />
+        <Route path="/error403" element={<Error403 />} />
+        <Route path="*" element={<NotFound />} />
 
 
-        {/* SIDEBAR */}
-        <Sidebar />
-
-        {/* MAIN CONTENT */}
-        <div id="main-content" className="flex-1 p-4">
-          <Header openModal={() => setShowModal(true)} />
-          {/* <Dashboard /> */}
-
-          <Routes>
-
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/error400" element={<Error400 />} />
-            <Route path="/error401" element={<Error401 />} />
-            <Route path="/error403" element={<Error403 />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-
-        </div>
-
-      </div>
-      {/* MODAL */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl w-[400px] shadow-xl">
-
-            <h2 className="text-lg font-bold mb-3">Search</h2>
-
-            <input
-              type="text"
-              placeholder="Cari sesuatu..."
-              className="w-full border px-3 py-2 rounded mb-4"
-            />
-
-            <button
-              onClick={() => setShowModal(false)}
-              className="bg-red-500 text-white px-4 py-2 rounded"
-            >
-              Close
-            </button>
-
-          </div>
-        </div>
-      )}
-
-    </div>
+      </Route>
+       <Route element={<AuthLayout/>}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="/forgot" element={<Forgot/>} />
+        </Route>
+    </Routes>
   )
-
 }
 
 export default App
