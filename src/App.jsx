@@ -1,27 +1,16 @@
 import "./assets/tailwind.css";
-import { Routes } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-// import Orders from './pages/Orders';
-// import Customers from './pages/Customers';
-// import NotFound from "./pages/NotFound";
-// import Dashboard from "./pages/Dashboard";
-// import Error400 from "./pages/Error400";
-// import Error401 from "./pages/Error401";
-// import Error403 from "./pages/Error403";
-// import MainLayout from './layouts/MainLayout';
-// import Login from "./pages/auth/Login";
-// import Register from "./pages/auth/Register";
-// import Forgot from "./pages/auth/Forgot";  
-// import AuthLayout from "./layouts/AuthLayout";
-import React from 'react';
-import { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
 import Loading from "./components/Loading";
 
-
 function App() {
+  // --- DEKLARASI PAGES (Lazy Loading) ---
   const Dashboard = React.lazy(() => import("./pages/Dashboard"))
   const Orders = React.lazy(() => import("./pages/Orders"))
   const Customers = React.lazy(() => import("./pages/Customers"))
+  const CustomersDetail = React.lazy(() => import("./pages/CustomersDetail")) // Perbaikan Nama & Path
+  const Produk = React.lazy(() => import("./pages/Produk"))
+  const ProductDetail = React.lazy(() => import("./pages/ProductDetail")) // Sekarang cuma satu deklarasi
   const NotFound = React.lazy(() => import("./pages/NotFound"))
   const Error400 = React.lazy(() => import("./pages/Error400"))
   const Error401 = React.lazy(() => import("./pages/Error401"))
@@ -35,19 +24,27 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
+        {/* Layout Utama untuk Menu Resto & Customer */}
         <Route element={<MainLayout />}>
-
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
+          
+          {/* Rute Customer */}
           <Route path="/customers" element={<Customers />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/customers/:id" element={<CustomersDetail />} />
+          
+          {/* Rute Produk/Menu */}
+          <Route path="/produk" element={<Produk />} />
+          <Route path="/products/:id" element={<ProductDetail />} /> 
+
+          {/* Rute Error & Not Found */}
           <Route path="/error400" element={<Error400 />} />
           <Route path="/error401" element={<Error401 />} />
           <Route path="/error403" element={<Error403 />} />
           <Route path="*" element={<NotFound />} />
-
-
         </Route>
+
+        {/* Layout untuk Login/Register */}
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -58,4 +55,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

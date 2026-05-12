@@ -1,4 +1,4 @@
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard, MdInventory } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { MdPeople } from "react-icons/md";
 import profile from "../assets/profile.jpeg";
@@ -48,6 +48,13 @@ export default function Sidebar() {
                         <NavLink to="/customers" className={menuClass}>
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
+                        </NavLink>
+                    </li>
+
+                      <li>
+                        <NavLink to="/produk" className={menuClass}>
+                            <MdInventory className="mr-4 text-xl" />
+                            <span>Products</span>
                         </NavLink>
                     </li>
 
