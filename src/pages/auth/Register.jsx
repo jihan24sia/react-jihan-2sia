@@ -1,11 +1,9 @@
 import React from 'react';
-// Pastikan jumlah titiknya dua (../../) karena file ini ada di dalam folder 'auth'
-import Container from "../../components/Container"; 
 
 export default function Register() {
     return (
-        <Container>
-            <div className="max-w-md mx-auto">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+            <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl">
                 <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">
                     Create Your Account ✨
                 </h2>
@@ -68,6 +66,6 @@ export default function Register() {
                     </button>
                 </form>
             </div>
-        </Container>
+        </div>
     );
 }
