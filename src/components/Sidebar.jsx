@@ -57,6 +57,13 @@ export default function Sidebar() {
                             <span>Products</span>
                         </NavLink>
                     </li>
+                    
+                      <li>
+                        <NavLink to="/components" className={menuClass}>
+                            <MdInventory className="mr-4 text-xl" />
+                            <span>Components</span>
+                        </NavLink>
+                    </li>
 
                     {/* 🔥 TAMBAHAN ERROR */}
                     <li>

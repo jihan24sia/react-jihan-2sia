@@ -7,6 +7,7 @@ function App() {
   // --- DEKLARASI PAGES (Lazy Loading) ---
   const Dashboard = React.lazy(() => import("./pages/Dashboard"))
   const Orders = React.lazy(() => import("./pages/Orders"))
+  const Components = React.lazy(() => import("./pages/Components"))
   const Customers = React.lazy(() => import("./pages/Customers"))
   const CustomersDetail = React.lazy(() => import("./pages/CustomersDetail")) // Perbaikan Nama & Path
   const Produk = React.lazy(() => import("./pages/Produk"))
@@ -28,6 +29,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
+           <Route path="/components" element={<Components />} />
           
           {/* Rute Customer */}
           <Route path="/customers" element={<Customers />} />
